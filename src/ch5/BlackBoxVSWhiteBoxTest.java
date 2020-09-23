@@ -20,4 +20,33 @@ class BlackBoxVSWhiteBoxTest {
 		BlackBoxVSWhiteBox bb = new BlackBoxVSWhiteBox();
 		assertEquals(10, bb.cal(5.2f));
 	}
+	
+	@Test
+	void testBlackBoxEccentric() {
+		BlackBoxVSWhiteBoxEccentricA bb = new BlackBoxVSWhiteBoxEccentricA();
+		assertEquals(10, bb.cal(5.0f));
+		assertEquals(10, bb.cal(5.2f));
+		assertEquals(10, bb.cal(5.5f));
+		assertEquals(10, bb.cal(5.6f));
+	}
+	@Test
+	void testWhiteBoxEccentric() {
+		BlackBoxVSWhiteBoxEccentricA bb = new BlackBoxVSWhiteBoxEccentricA();
+		assertEquals(10, bb.cal(5.0f));
+		assertEquals(10, bb.cal(5.2f));
+	}
+	@Test
+	void testBlackBoxEccentricB() {
+		BlackBoxVSWhiteBoxEccentricB bb = new BlackBoxVSWhiteBoxEccentricB();
+		assertEquals(10, bb.cal(5.0f));
+		assertEquals(10, bb.cal(5.2f));
+		assertEquals(10, bb.cal(5.5f));
+		assertEquals(10, bb.cal(5.6f));
+	}
+	@Test
+	void testWhiteBoxEccentricB() {
+		BlackBoxVSWhiteBoxEccentricB bb = new BlackBoxVSWhiteBoxEccentricB();
+		assertEquals(10, bb.cal(5.0f));//assertEquals(10, bb.cal(5.2f));
+		assertEquals(10, bb.cal(5.6f));
+	}
 }
