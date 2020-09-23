@@ -6,3 +6,11 @@ public class BlackBoxVSWhiteBox {
 		return numI*2;
 	}
 }
+
+class BlackBoxVSWhiteBoxEccentric {
+	public int cal(float num) {
+		int numI = (int)Math.floor(num);
+		numI--;
+		return numI*2;
+	}
+}
