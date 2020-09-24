@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
+//TODO org.junit.test vs org.junit.jupiter.api.test 区别
+
+
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
 class E03_ConsoleMainTest {
 	PrintStream console = null;          // 声明（为null）：输出流 (字符设备) console
