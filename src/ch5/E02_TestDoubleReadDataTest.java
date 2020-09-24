@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class TestDoubleReadDataTest {
+class E02_TestDoubleReadDataTest {
 	@Test
 	void testStub() {
 		String fileName = "fileName";
@@ -16,7 +16,7 @@ class TestDoubleReadDataTest {
 		String[] resFromStorySystem = new String[0];
 		stubStoreSystem.setResult(resFromStorySystem);
 		
-		Data res = TestDoubleReadData.read(stubStoreSystem, stubDataHandle, fileName);
+		Data res = E02_TestDoubleReadData.read(stubStoreSystem, stubDataHandle, fileName);
 		assertEquals(fileName, stubStoreSystem.getCallWithPara());
 		assertEquals(1, stubStoreSystem.getCallCount());
 		
@@ -35,7 +35,7 @@ class TestDoubleReadDataTest {
 		String[] resFromStorySystem = new String[] {"0,1,2,3"};
 		stubStoreSystem.setResult(resFromStorySystem);
 		
-		Data res = TestDoubleReadData.read(stubStoreSystem, stubDataHandle, fileName);
+		Data res = E02_TestDoubleReadData.read(stubStoreSystem, stubDataHandle, fileName);
 		assertEquals(fileName, stubStoreSystem.getCallWithPara());
 		assertEquals(1, stubStoreSystem.getCallCount());
 		
@@ -48,7 +48,7 @@ class TestDoubleReadDataTest {
 	}
 }
 
-class DriveReadData extends TestDoubleReadData{
+class DriveReadData extends E02_TestDoubleReadData{
 	public static Data read(IStoreSystem iDataSystem, IDataHandle dataHandle, String name ) {
 		return dataHandle.deal(iDataSystem.read(name));
 	}
@@ -91,4 +91,3 @@ class SpyBase{
 		return count;
 	}
 }
-

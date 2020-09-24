@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class BlackBoxVSWhiteBoxTest {
+class E01_BlackBoxVSWhiteBoxTest {
 
 	@Test
 	void testBlackBox() {
-		BlackBoxVSWhiteBox bb = new BlackBoxVSWhiteBox();
+		E01_BlackBoxVSWhiteBox bb = new E01_BlackBoxVSWhiteBox();
 		assertEquals(10, bb.cal(5.0f));
 		assertEquals(10, bb.cal(5.2f));
 		assertEquals(10, bb.cal(5.5f));
@@ -17,7 +17,7 @@ class BlackBoxVSWhiteBoxTest {
 
 	@Test
 	void testWhiteBox() {
-		BlackBoxVSWhiteBox bb = new BlackBoxVSWhiteBox();
+		E01_BlackBoxVSWhiteBox bb = new E01_BlackBoxVSWhiteBox();
 		assertEquals(10, bb.cal(5.2f));
 	}
 	

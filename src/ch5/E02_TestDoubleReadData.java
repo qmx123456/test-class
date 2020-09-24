@@ -1,6 +1,6 @@
 package ch5;
 
-public class TestDoubleReadData {
+public class E02_TestDoubleReadData {
 	public static Data read(IStoreSystem iDataSystem, IDataHandle dataHandle, String name ) {
 		return dataHandle.deal(iDataSystem.read(name));
 	}
