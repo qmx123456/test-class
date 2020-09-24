@@ -4,9 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class ReadDataTest {
+class TestDoubleReadDataTest {
 	@Test
-	void test() {
+	void testStub() {
 		String fileName = "fileName";
 		StubDataHandle stubDataHandle = new StubDataHandle();
 		DummyData dummyData = new DummyData();
@@ -16,7 +16,7 @@ class ReadDataTest {
 		String[] resFromStorySystem = new String[0];
 		stubStoreSystem.setResult(resFromStorySystem);
 		
-		Data res = ReadData.read(stubStoreSystem, stubDataHandle, fileName);
+		Data res = TestDoubleReadData.read(stubStoreSystem, stubDataHandle, fileName);
 		assertEquals(fileName, stubStoreSystem.getCallWithPara());
 		assertEquals(1, stubStoreSystem.getCallCount());
 		
@@ -25,7 +25,36 @@ class ReadDataTest {
 		
 		assertEquals(dummyData.d, ((DummyData)res).d);
 	}
+	
+	@Test
+	void testDrive() {
+		String fileName = "fileName";
+		SingleDataHandle stubDataHandle = new SingleDataHandle();
+		
+		StubStoreSystem stubStoreSystem = new StubStoreSystem();
+		String[] resFromStorySystem = new String[] {"0,1,2,3"};
+		stubStoreSystem.setResult(resFromStorySystem);
+		
+		Data res = TestDoubleReadData.read(stubStoreSystem, stubDataHandle, fileName);
+		assertEquals(fileName, stubStoreSystem.getCallWithPara());
+		assertEquals(1, stubStoreSystem.getCallCount());
+		
+		float[] data = ((SingleData)res).data;
+		assertEquals(4, data.length);
+		assertEquals(0f, data[0]);
+		assertEquals(1f, data[1]);
+		assertEquals(2f, data[2]);
+		assertEquals(3f, data[3]);
+	}
 }
+
+class DriveReadData extends TestDoubleReadData{
+	public static Data read(IStoreSystem iDataSystem, IDataHandle dataHandle, String name ) {
+		return dataHandle.deal(iDataSystem.read(name));
+	}
+}
+
+
 class DummyData extends Data{
 	public int d = 0;
 }
