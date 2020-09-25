@@ -7,9 +7,4 @@ public class E03_ConsoleMain {
 		PrintStream out = System.out;
 		out.print("qmx");
 	}
-	
-	String t(String s) {
-		System.out.print(s);
-		return s;
-	}
 }
