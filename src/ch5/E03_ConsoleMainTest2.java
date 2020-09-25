@@ -1,21 +1,14 @@
 package ch5;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-//import org.junit.jupiter.api.Test;
-//import org.junit.jupiter.api.TestInstance;
+public class E03_ConsoleMainTest2 {
 
-
-//TODO org.junit.test vs org.junit.jupiter.api.test 区别
-
-
-//@TestInstance(TestInstance.Lifecycle.PER_METHOD)
-class E03_ConsoleMainTest {
 	PrintStream console = null;          // 声明（为null）：输出流 (字符设备) console
 	ByteArrayOutputStream bytes = null;  // 声明（为null）：bytes 用于缓存console 重定向过来的字符流
 	E03_ConsoleMain cm; 
@@ -47,5 +40,4 @@ class E03_ConsoleMainTest {
 		cm.t(s);
 		assertEquals(s, bytes.toString());          // bytes.toString() 作用是将 bytes内容 转换为字符流
 	}
-
 }
