@@ -58,16 +58,15 @@ class DriveReadData extends E02_TestDoubleReadData{
 class DummyData extends Data{
 	public int d = 0;
 }
-class StubStoreSystem extends SpyBase implements IStoreSystem{
+class StubStoreSystem extends TestBase implements IStoreSystem{
 	@Override
 	public String[] read(String fileName) {
 		callWith = fileName;
 		count ++;
-		// TODO Auto-generated method stub
 		return (String[])result;
 	}
 }
-class StubDataHandle extends SpyBase implements IDataHandle{
+class StubDataHandle extends TestBase implements IDataHandle{
 	@Override
 	public Data deal(String[] readFileByLines) {
 		count ++;
@@ -76,7 +75,7 @@ class StubDataHandle extends SpyBase implements IDataHandle{
 	}
 }
 
-class SpyBase{
+class TestBase{
 	Object callWith;
 	int count = 0;
 	Object result;
