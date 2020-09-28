@@ -2,14 +2,17 @@ package ch5;
 
 public class E05_WhiteTestEx {
 
-	public static int sum(int N, int j) {
-		int R = 0 ;
+	public static int sum(int N, int Max) throws TooLargeException {
+		int sum = 0 ;
 		int k = 0;
-		while(k<=N) {
-			R += k;
+		while(k<N) {//无法驱动出 && sum<=Max
+			sum += k;
 			k++;
 		}
-		return R;
+		if(sum > Max) {
+			throw new TooLargeException("Error: too large");
+		}
+		return sum;
 	}
 
 }
