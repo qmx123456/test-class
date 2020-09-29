@@ -57,16 +57,14 @@ public class AxisCalculator {
 
 	public static int calPow(float maxInterval) {
 		int pow = 0;
-		if(maxInterval<1) {
-			float temp = maxInterval;
+		float temp = Math.abs(maxInterval);
+		if(temp<1) {
 			while(temp<1) {
 				temp *=10;
 				pow++;
 			}
 			pow = pow*-1;
-		}
-		if(maxInterval >=10) {
-			float temp = maxInterval;
+		}else if(temp >=10) {
 			while(temp>=10) {
 				temp /=10;
 				pow++;

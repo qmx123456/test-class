@@ -10,7 +10,7 @@ class AxisCalculatorTest {
 
 	@ParameterizedTest
 	@CsvSource({
-	    "1, 0", "0.9, -1", "10, 1"
+	    "1, 0", "0.9, -1", "10, 1","-0.5, -1", "-2.3, 0","-200, 2"
 	})
 	void testPowCal(float value, int exp) {
 		int res = AxisCalculator.calPow(value);
