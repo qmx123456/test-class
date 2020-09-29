@@ -2,12 +2,12 @@ package drawOAndr;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class AxisCalculatorTest {
-
 	@ParameterizedTest
 	@CsvSource({
 	    "1, 0", "0.9, -1", "10, 1","-0.5, -1", "-2.3, 0","-200, 2"

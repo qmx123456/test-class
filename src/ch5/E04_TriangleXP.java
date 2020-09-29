@@ -16,9 +16,6 @@ public class E04_TriangleXP {
 		}
 		return value;
 	}
-	
-	
-
 }
 
 enum E04_TriangleStyle {

@@ -26,6 +26,7 @@ class E04_TriangleXPTest {
 	@CsvSource({
 	    "2,3,4"
 	})
+	
 	void isIrregularTriangle(double edgeA, double edgeB, double edgeC) {
 		E04_TriangleStyle ts = E04_TriangleXP.tellStyle(edgeA,edgeB,edgeC);
 		assertEquals(E04_TriangleStyle.Irregular, ts);	
