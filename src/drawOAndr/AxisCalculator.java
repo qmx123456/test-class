@@ -8,21 +8,20 @@ public class AxisCalculator {
 		float[] res = new float[3];
 		float diff = max - min;
 		float maxInterval = diff / minCount;
-		res[2] = pickInterval(maxInterval);
-		res[0] = fixMinWith(res[2], min);
-		res[1] = fixMaxWith(max, res[2]);
+		res[0] = pickInterval(maxInterval);
+		res[1] = fiMndFirstDegreeWith(max, res[0]);
 		return res;
 	}
 
-	protected static float fixMaxWith(float max, float interval) {
-		int powForMax = calPow(max);
+	protected static float fiMndFirstDegreeWith(float start, float interval) {
+		int powForMax = calPow(start);
 		int powForInterval = calPow(interval);
 		if (powForMax == powForInterval) {
-			float temp = interval;
-			while (temp < max) {
-				temp += interval;
+			int many = (int)(start/interval);
+			if (start <= 0 || isEqual(start,interval*many)) {
+				return interval*many;
 			}
-			return temp;
+			return interval *(many +1);
 		}
 //		if(powForMax < powForInterval) {
 //			return interval;
@@ -30,10 +29,8 @@ public class AxisCalculator {
 
 		return 0;
 	}
-
-	public static float fixMinWith(float interval, float min) {
-		// TODO Auto-generated method stub
-		return 0;
+	public static boolean isEqual(float exp, float res) {
+		return Math.abs(res-exp) <0.000001f;
 	}
 
 	public static float pickInterval(float minInterval) {
@@ -57,7 +54,7 @@ public class AxisCalculator {
 	public static int calPow(float maxInterval) {
 		int pow = 0;
 		float temp = Math.abs(maxInterval);
-		if (temp < 1) {
+		if (temp < 1 && temp != 0) {
 			while (temp < 1) {
 				temp *= 10;
 				pow++;

@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 class AxisCalculatorTest {
 	@ParameterizedTest
 	@CsvSource({
-	    "1, 0", "0.9, -1", "10, 1","-0.5, -1", "-2.3, 0","-200, 2"
+	    "1, 0", "0.9, -1", "10, 1","-0.5, -1", "-2.3, 0","-200, 2","0,0"
 	})
 	void testPowCal(float value, int exp) {
 		int res = AxisCalculator.calPow(value);
@@ -41,10 +41,19 @@ class AxisCalculatorTest {
 	
 	@ParameterizedTest
 	@CsvSource({
-		"2.3, 1, 3", "2.3, 5, 5","-2.3, 1,-2","-0.1,1,0"
+		"2.3, 1, 3", "2.3, 5, 5","-2.3, 1,-2","0,1,0","-2.3, 5,0","5,5,5","-5,5,-5","20,10,20","-55, 50,-50"
 	})
-	void testFixMax(float max, float interval, float exp) {
-		float res = AxisCalculator.fixMaxWith(max, interval);
+	void testFindFisrtDegreeWhenStartHasSamePowWithInterval(float start, float interval, float exp) {
+		float res = AxisCalculator.fiMndFirstDegreeWith(start, interval);
+		assertEquals(true, isEqual(exp, res));
+	}
+	
+	@ParameterizedTest
+	@CsvSource({
+		"23.4, 5, 25", "-23.9, 2.5,-25","-24.7, 5,0","5,5,5","-5,5,-5"
+	})
+	void testFindFisrtDegreeWhenStartHasBiggerPowWithInterval(float start, float interval, float exp) {
+		float res = AxisCalculator.fiMndFirstDegreeWith(start, interval);
 		assertEquals(true, isEqual(exp, res));
 	}
 
