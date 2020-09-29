@@ -41,7 +41,7 @@ class AxisCalculatorTest {
 	
 	@ParameterizedTest
 	@CsvSource({
-		"2.3, 1, 3", "2.3, 5, 5","-2.3, 1,-2"
+		"2.3, 1, 3", "2.3, 5, 5","-2.3, 1,-2","-0.1,1,0"
 	})
 	void testFixMax(float max, float interval, float exp) {
 		float res = AxisCalculator.fixMaxWith(max, interval);
