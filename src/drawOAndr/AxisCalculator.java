@@ -1,20 +1,34 @@
 package drawOAndr;
 
 public class AxisCalculator {
+	private static final float[] BaseIntervals = {1,2,2.5f,5};
+
 	//please sure: minCount <= maxCount, min <= max
-	public static float[] cal(int minCount, int maxCount, float min, float max) {
+	public static float[] cal(int minCount, float min, float max) {
 		float[] res = new float[3];
 		float diff = max - min;
 		float maxInterval = diff/minCount;
-		float minInterval = diff/maxCount;
-		res[2] = pickInterval(minInterval, maxInterval);
+		res[2] = pickInterval(maxInterval);
 		res[0] = fixMinWith(res[2], min);
-		res[1] = fixMaxWith(res[2], max);
+		res[1] = fixMaxWith(max, res[2]);
 		return res;
 	}
 
-	public static float fixMaxWith(float interval, float max) {
-		// TODO Auto-generated method stub
+	protected static float fixMaxWith(float max, float interval) {
+		int powForMax = calPow(max);
+		int powForInterval = calPow(interval);
+		if(powForMax == powForInterval) {
+			float temp = interval;
+			while(temp < max) {
+				temp += interval;
+			}
+			return temp;
+		}
+//		if(powForMax < powForInterval) {
+//			return interval;
+//		}
+		
+		
 		return 0;
 	}
 
@@ -23,27 +37,42 @@ public class AxisCalculator {
 		return 0;
 	}
 
-	public static float pickInterval(float minInterval, float maxInterval) {
+	public static float pickInterval(float minInterval) {
 		int powForMin = calPow(minInterval);
-		float minPick = pickMinIntervalFrom(minInterval*(float)Math.pow(10, powForMin));
-		int powForMax = calPow(maxInterval);
-		float maxPick = pickMaxIntervalFrom(maxInterval*(float)Math.pow(10, powForMax));
-		return pickIntervalBase(minPick, powForMin, maxPick, powForMax);
+		float intervalBase = minInterval/(float)Math.pow(10, powForMin);
+		float minPick = pickBaseIntervalFrom(intervalBase);
+		return minPick*(float)Math.pow(10, powForMin);
 	}
 
-	private static float pickMaxIntervalFrom(float maxInterval, int powForMax) {
-		// TODO Auto-generated method stub
-		return 0;
+	public static float pickBaseIntervalFrom(float maxInterval) {
+		float value =BaseIntervals[BaseIntervals.length-1];
+		for(int i=1;i<BaseIntervals.length;i++) {
+			if(maxInterval<BaseIntervals[i]) {
+				value = BaseIntervals[i-1];
+				break;
+			}
+		}
+		return value;
 	}
 
-	private static float pickMinIntervalFrom(float minInterval) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	private static int calPow(float minInterval) {
-		// TODO Auto-generated method stub
-		return 0;
+	public static int calPow(float maxInterval) {
+		int pow = 0;
+		if(maxInterval<1) {
+			float temp = maxInterval;
+			while(temp<1) {
+				temp *=10;
+				pow++;
+			}
+			pow = pow*-1;
+		}
+		if(maxInterval >=10) {
+			float temp = maxInterval;
+			while(temp>=10) {
+				temp /=10;
+				pow++;
+			}
+		}
+		return pow;
 	}
 
 }
