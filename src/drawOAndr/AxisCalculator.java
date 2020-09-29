@@ -23,9 +23,6 @@ public class AxisCalculator {
 			}
 			return interval *(many +1);
 		}
-//		if(powForMax < powForInterval) {
-//			return interval;
-//		}
 
 		return 0;
 	}

@@ -41,9 +41,9 @@ class AxisCalculatorTest {
 	
 	@ParameterizedTest
 	@CsvSource({
-		"2.3, 1, 3", "2.3, 5, 5","-2.3, 1,-2","0,1,0","-2.3, 5,0","5,5,5","-5,5,-5","20,10,20","-55, 50,-50"
-	})
-	void testFindFisrtDegreeWhenStartHasSamePowWithInterval(float start, float interval, float exp) {
+		"2.3, 1, 3", "2.3, 5, 5","-2.3, 1,-2","0,1,0","-2.3, 5,0","5,5,5","-5,5,-5","-55, 50,-50","0.45,0.25,0.5"
+	})//TODO 优化测试用例的个数
+	void testFindFisrtDegreeWhenStartHasSamePowZeroWithInterval(float start, float interval, float exp) {
 		float res = AxisCalculator.fiMndFirstDegreeWith(start, interval);
 		assertEquals(true, isEqual(exp, res));
 	}
