@@ -2,8 +2,6 @@ package drawOAndr;
 
 public class AxisCalculator {
 	private static final float[] BaseIntervals = { 1, 2, 2.5f, 5 };
-
-	// please sure: minCount <= maxCount, min <= max
 	public static float[] cal(int minCount, float min, float max) {
 		float[] res = new float[3];
 		float diff = max - min;
@@ -13,21 +11,16 @@ public class AxisCalculator {
 		return res;
 	}
 
-	protected static float fiMndFirstDegreeWith(float start, float interval) {
-		int powForMax = calPow(start);
-		int powForInterval = calPow(interval);
-		if (powForMax == powForInterval) {
-			int many = (int)(start/interval);
-			if (start <= 0 || isEqual(start,interval*many)) {
-				return interval*many;
-			}
-			return interval *(many +1);
+	public static float fiMndFirstDegreeWith(float start, float interval) {
+		int many = (int) (start / interval);
+		if (start <= 0 || isEqual(start, interval * many)) {
+			return interval * many;
 		}
-
-		return 0;
+		return interval * (many + 1);
 	}
+
 	public static boolean isEqual(float exp, float res) {
-		return Math.abs(res-exp) <0.000001f;
+		return Math.abs(res - exp) < 0.000001f;
 	}
 
 	public static float pickInterval(float minInterval) {
