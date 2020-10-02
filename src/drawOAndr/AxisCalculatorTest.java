@@ -17,6 +17,9 @@ class AxisCalculatorTest {
 		assertEquals(exp, res);
 	}
 	
+	
+	
+	
 	@ParameterizedTest
 	@CsvSource({
 		"1, 1", "2.1, 2", "9.9, 5"

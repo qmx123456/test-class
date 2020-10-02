@@ -47,9 +47,8 @@ public class AxisCalculator {
 		if (temp < 1 && temp != 0) {
 			while (temp < 1) {
 				temp *= 10;
-				pow++;
+				pow--;
 			}
-			pow = pow * -1;
 		} else if (temp >= 10) {
 			while (temp >= 10) {
 				temp /= 10;
