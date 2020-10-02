@@ -7,6 +7,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class E00_JUnitLifeCycleTest {
+	
+	public E00_JUnitLifeCycleTest() {
+		System.out.println("constructor");
+	}
 	@BeforeAll
 	static void beforeAll1() {
 		System.out.println("BeforeAll 1");
