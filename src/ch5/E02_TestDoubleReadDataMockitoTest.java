@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.*;
 
+import java.util.LinkedList;
+import java.util.List;
+
 class E02_TestDoubleReadDataMockitoTest {
 	@Test
 	void test() {
@@ -23,4 +26,5 @@ class E02_TestDoubleReadDataMockitoTest {
 		verify(mockStore).read(fileName);
 		verify(mockHandle).deal(s);
 	}
+	//TODO spy, mock, dummy, fake, stub
 }
