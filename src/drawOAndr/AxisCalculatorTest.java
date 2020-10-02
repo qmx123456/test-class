@@ -16,16 +16,13 @@ class AxisCalculatorTest {
 		int res = AxisCalculator.calPow(value);
 		assertEquals(exp, res);
 	}
-	
-	
-	
-	
+		
 	@ParameterizedTest
 	@CsvSource({
 		"1, 1", "2.1, 2", "9.9, 5"
 	})
 	void testPickIntervalBase(float value, float exp) {
-		float res = AxisCalculator.pickBaseIntervalFrom(value);
+		float res = AxisCalculator.pickDreamInterval(value);
 		assertEquals(exp, res);
 	}
 	
@@ -34,7 +31,7 @@ class AxisCalculatorTest {
 		"1, 1", "0.24, 0.2", "0.0056, 0.005","101, 100","99, 50"
 	})
 	void testPickInterval(float value, float exp) {
-		float res = AxisCalculator.pickInterval(value);
+		float res = AxisCalculator.calActualInterval(value);
 		assertEquals(true, isEqual(exp, res));
 	}
 
@@ -50,8 +47,7 @@ class AxisCalculatorTest {
 		"0.00234, 0.5, 0.5", "-0.00239, 0.025,0"
 	})//TODO 优化测试用例的个数
 	void testFindFisrtDegree(float start, float interval, float exp) {
-		float res = AxisCalculator.fiMndFirstDegreeWith(start, interval);
+		float res = AxisCalculator.findFirstDegree(start, interval);
 		assertEquals(true, isEqual(exp, res));
 	}
-
 }

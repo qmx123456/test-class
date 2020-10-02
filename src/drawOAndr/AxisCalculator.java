@@ -6,12 +6,12 @@ public class AxisCalculator {
 		float[] res = new float[3];
 		float diff = max - min;
 		float maxInterval = diff / minCount;
-		res[0] = pickInterval(maxInterval);
-		res[1] = fiMndFirstDegreeWith(max, res[0]);
+		res[0] = calActualInterval(maxInterval);
+		res[1] = findFirstDegree(max, res[0]);
 		return res;
 	}
 
-	public static float fiMndFirstDegreeWith(float start, float interval) {
+	public static float findFirstDegree(float start, float interval) {
 		int many = (int) (start / interval);
 		if (start <= 0 || isEqual(start, interval * many)) {
 			return interval * many;
@@ -23,17 +23,17 @@ public class AxisCalculator {
 		return Math.abs(res - exp) < 0.000001f;
 	}
 
-	public static float pickInterval(float minInterval) {
-		int powForMin = calPow(minInterval);
-		float intervalBase = minInterval / (float) Math.pow(10, powForMin);
-		float minPick = pickBaseIntervalFrom(intervalBase);
-		return minPick * (float) Math.pow(10, powForMin);
+	public static float calActualInterval(float actualIntervalBase) {
+		int pow = calPow(actualIntervalBase);
+		float dreamIntervalBase = actualIntervalBase / (float) Math.pow(10, pow);
+		float dreamInterval = pickDreamInterval(dreamIntervalBase);
+		return dreamInterval * (float) Math.pow(10, pow);
 	}
 
-	public static float pickBaseIntervalFrom(float maxInterval) {
+	public static float pickDreamInterval(float dreamInterval) {
 		float value = BaseIntervals[BaseIntervals.length - 1];
 		for (int i = 1; i < BaseIntervals.length; i++) {
-			if (maxInterval < BaseIntervals[i]) {
+			if (dreamInterval < BaseIntervals[i]) {
 				value = BaseIntervals[i - 1];
 				break;
 			}
@@ -41,9 +41,9 @@ public class AxisCalculator {
 		return value;
 	}
 
-	public static int calPow(float maxInterval) {
+	public static int calPow(float num) {
 		int pow = 0;
-		float temp = Math.abs(maxInterval);
+		float temp = Math.abs(num);
 		if (temp < 1 && temp != 0) {
 			while (temp < 1) {
 				temp *= 10;
