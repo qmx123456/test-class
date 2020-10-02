@@ -20,4 +20,10 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>net.sf.eclipsecs.core.CheckstyleNature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>mockito</name>
+			<value>file:/G:/eclipse-ws/mockito-all-2.0.2-beta.jar</value>
+		</variable>
+	</variableList>
 </projectDescription>
