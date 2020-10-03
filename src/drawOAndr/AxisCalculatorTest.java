@@ -50,4 +50,11 @@ class AxisCalculatorTest {
 		float res = AxisCalculator.findFirstDegree(start, interval);
 		assertEquals(true, isEqual(exp, res));
 	}
+	
+	@Test
+	void testValueShow() {
+		String res = AxisCalculator.showValue(0.001f);
+		assertEquals("0.001", res);
+	}
+	
 }

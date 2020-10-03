@@ -58,4 +58,9 @@ public class AxisCalculator {
 		return pow;
 	}
 
+	public static String showValue(float f) {
+		// TODO Auto-generated method stub
+		return Float.toString(f);
+	}
+
 }
