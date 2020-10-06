@@ -14,17 +14,17 @@ class E02_TestDoubleReadDataMockitoTest {
 		IStoreSystem mockStore = mock(IStoreSystem.class);
 		IDataHandle mockHandle = mock(IDataHandle.class);
 		String fileName = "fileName";
-		String[] s = new String[] {"12"};
+		String[] setRes = new String[] {"12"};
 		Data data = new Data();
 		
-		when(mockStore.read(fileName)).thenReturn(s);
-		when(mockHandle.deal(s)).thenReturn(data);
+		when(mockStore.read(fileName)).thenReturn(setRes);
+		when(mockHandle.deal(setRes)).thenReturn(data);
 		
 		Data res = E02_TestDoubleReadData.read(mockStore, mockHandle, fileName);		
 		assertEquals(data, res);
 		
 		verify(mockStore).read(fileName);
-		verify(mockHandle).deal(s);
+		verify(mockHandle).deal(setRes);
 	}
 	//TODO spy, mock, dummy, fake, stub
 }
