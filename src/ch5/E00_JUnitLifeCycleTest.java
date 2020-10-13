@@ -64,6 +64,8 @@ public class E00_JUnitLifeCycleTest {
 	void AfterEach2() {
 		System.out.println("AfterEach 2");
 	}
-	
-	
+
+    protected void finalize()throws Throwable{
+    	System.out.println("finalize");//不知道何时调用
+    }
 }
