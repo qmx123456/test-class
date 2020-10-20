@@ -5,28 +5,28 @@ public class E02_TestDoubleReadData {
 		return dataHandle.deal(iDataSystem.read(name));
 	}
 }
-
+class Data{
+	
+}
+interface IDataHandle{
+	Data deal(String[] s);
+}
 interface IStoreSystem{
 	String[] read(String fileName);
 	
 }
+
 class FileSystem implements IStoreSystem{
     public String[] read(String fileName) {
         return null;
     }
 }
 
-class Data{
-	
-}
+
+
 class SingleData extends Data{
 	public float[] data;
 }
-
-interface IDataHandle{
-	Data deal(String[] s);
-}
-
 class SingleDataHandle implements IDataHandle{
 	@Override
 	public Data deal(String[] s) {
