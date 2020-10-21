@@ -54,7 +54,6 @@ class DriveReadData extends E02_TestDoubleReadData{
 	}
 }
 
-
 class DummyData extends Data{
 	public int d = 0;
 }

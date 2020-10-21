@@ -5,4 +5,3 @@ public class E03_ConsoleMain {
 		System.out.print("qmx");
 	}
 }
-

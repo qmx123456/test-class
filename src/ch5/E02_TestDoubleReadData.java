@@ -6,7 +6,6 @@ public class E02_TestDoubleReadData {
 	}
 }
 class Data{
-	
 }
 interface IDataHandle{
 	Data deal(String[] s);
@@ -16,14 +15,12 @@ interface IStoreSystem{
 	
 }
 
+
 class FileSystem implements IStoreSystem{
     public String[] read(String fileName) {
         return null;
     }
 }
-
-
-
 class SingleData extends Data{
 	public float[] data;
 }
