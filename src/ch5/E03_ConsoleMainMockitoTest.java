@@ -15,10 +15,10 @@ public class E03_ConsoleMainMockitoTest {
     @Disabled
 	public void testWithSpy() {
     	PrintStream console = System.out;
-		PrintStream mock = Mockito.spy(console);
-    	System.setOut(mock);
+		PrintStream consoleSpy = Mockito.spy(console);
+    	System.setOut(consoleSpy);
 		E03_ConsoleMain.main(null);
-		verify(mock).print("qmx");
+		verify(consoleSpy).print("qmx");
 		System.setOut(console);
 	}	
     @Test

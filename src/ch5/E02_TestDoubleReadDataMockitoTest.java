@@ -7,8 +7,6 @@ import org.mockito.Mockito;
 
 import static org.mockito.Mockito.*;
 
-import java.util.LinkedList;
-import java.util.List;
 
 class E02_TestDoubleReadDataMockitoTest {
 	@Test
@@ -28,7 +26,6 @@ class E02_TestDoubleReadDataMockitoTest {
 		verify(mockStore).read(fileName);
 		verify(mockHandle).deal(setRes);
 	}
-	//TODO spy, mock, dummy, fake, stub
 	
 	@Test
 	void testSyp() {

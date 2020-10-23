@@ -7,12 +7,11 @@ public class E02_TestDoubleReadData {
 }
 class Data{
 }
+interface IStoreSystem{
+	String[] read(String fileName);	
+}
 interface IDataHandle{
 	Data deal(String[] s);
-}
-interface IStoreSystem{
-	String[] read(String fileName);
-	
 }
 
 
