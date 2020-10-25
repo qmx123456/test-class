@@ -1,4 +1,4 @@
-package ch5;
+package eg_console;
 
 public class E03_ConsoleMain2 {
 	public static void main(String[] args) {
