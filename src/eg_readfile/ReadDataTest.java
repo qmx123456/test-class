@@ -1,13 +1,8 @@
 package eg_readfile;
-
 import static org.junit.Assert.*;
-
 import java.awt.Stroke;
-
 import org.junit.Test;
-
 public class ReadDataTest {
-
 	@Test
 	public void test() {
 		StoreSystemStub storeSystemStub = new StoreSystemStub();
@@ -26,7 +21,6 @@ public class ReadDataTest {
 		assertEquals(res, data);
 	}
 }
-
 class StoreSystemStub implements IStoreSystem{
 	String para;
 	String[] res;
@@ -42,7 +36,6 @@ class StoreSystemStub implements IStoreSystem{
 		this.res = res;
 	}
 }
-
 class DataHandleStub implements IDataHandle{
 	String[] para;
 	Data data;
@@ -54,9 +47,7 @@ class DataHandleStub implements IDataHandle{
 	public String[] getPara() {
 		return para;
 	}
-	
 	public void setResult(Data data) {
 		this.data = data;
 	}
-	
 }

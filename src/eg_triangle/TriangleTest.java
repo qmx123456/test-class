@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class TriangleTest {
-
 	@Test
 	public void should_be_irregular_triangle_when_edge_is_2_3_4() throws NotATriangleException {
 		TriangleType tt = Triangle.getType(2,3,4);
